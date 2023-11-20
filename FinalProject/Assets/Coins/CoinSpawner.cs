@@ -41,7 +41,17 @@ public class CoinSpawner : MonoBehaviour
         //makes sure the renderer is not null as well as the shareddata material 
         if (renderer != null && sharedCoinData.material != null)
         {
-            renderer.material = sharedCoinData.material;
+           renderer.material = sharedCoinData.material;
+           
+            
+        }
+
+        //if renderer is null and material show error
+        else if (renderer == null && sharedCoinData.material == null)
+        {
+           
+        Debug.Log("Error null Renderer");
+            
         }
     }
 
