@@ -8,6 +8,7 @@ public class playerMove : MonoBehaviour
     //endlevel1 is locked start of level
     private bool endlevel1 = false;
    
+    //achievement manager 
     private AchieveManager achievementManager;
 
 
@@ -16,6 +17,8 @@ public class playerMove : MonoBehaviour
     private Rigidbody rb;
 
     public ParticleSystem colparticleSystem;
+
+    public GameObject coin;
 
     private Animator animator;
 
@@ -70,7 +73,7 @@ public class playerMove : MonoBehaviour
             animator.SetBool("IsJumping", false);
             isRunning = false;
 
-            AudioManager.Instance.playFX("Footsteps", 0.4f);
+            //AudioManager.Instance.playFX("Footsteps", 0.4f);
            
         }
 
@@ -114,7 +117,7 @@ public class playerMove : MonoBehaviour
             this.GetComponent<Blur>().enabled = true;
         }
 
-
+        //if endlevel1 is true the achievement will show
         if (endlevel1 == true)
         {
 
@@ -142,7 +145,7 @@ public class playerMove : MonoBehaviour
 
         else if (other.gameObject.name == ("WinTrigger"))
         {
-            SceneManager.LoadScene("Win");
+            SceneManager.LoadScene("Coins");
             end = true;
         }
 
@@ -153,6 +156,7 @@ public class playerMove : MonoBehaviour
             endlevel1 = true;
         }
 
+      
     }
 }
 
